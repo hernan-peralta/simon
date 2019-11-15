@@ -1,7 +1,3 @@
-const $1 = document.getElementsByClassName("d1");
-const $2 = document.getElementsByClassName("d2");
-const $3 = document.getElementsByClassName("d3");
-const $4 = document.getElementsByClassName("d4");
 const $inicioJuego = document.querySelector(".inicio-juego")
 const $hasPerdido = document.getElementsByTagName("p");
 let turno = 0;

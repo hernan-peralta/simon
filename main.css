@@ -1,0 +1,80 @@
+html{
+    background: rgb(48, 48, 48);
+}
+
+.d1{
+    width:200px;
+    height:150px;
+    background: green;
+}
+.d2{
+    width:200px;
+    height:150px;
+    background: red;
+}
+.d3{
+    width:200px;
+    height:150px;
+    background: yellow;
+}
+.d4{
+    width:200px;
+    height:150px;
+    background: blue;
+}
+
+
+
+.container {
+    margin: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 200px 100px;
+    gap: 20px 20px;
+}
+
+.animacion-click{
+    animation: animacion 0.20s 1;
+}
+
+@keyframes animacion{
+    100% {box-shadow: 10px 10px 100px 5px rgba(255,255,255,1)}
+    0% {}
+}
+
+.oculto{
+    display: none;
+}
+
+p {
+    text-align:center;
+    font-size: 120px;
+    color: red;
+    /* size: 100px; */
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+}
+
+.inicio-juego {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:12px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+.inicio-juego:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.inicio-juego:active {
+	position:relative;
+	top:1px;
+}

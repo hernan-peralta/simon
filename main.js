@@ -67,5 +67,9 @@ function turnoJugador(item){
     }
 }
 
+document.querySelector(".d1").addEventListener('click', function(){clickJugador('1')});
+document.querySelector(".d2").addEventListener('click', function(){clickJugador('2')});
+document.querySelector(".d3").addEventListener('click', function(){clickJugador('3')});
+document.querySelector(".d4").addEventListener('click', function(){clickJugador('4')});
 
 $inicioJuego.onclick = inicioJuego;

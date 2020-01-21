@@ -1,4 +1,4 @@
-const $inicioJuego = document.querySelector(".inicio-juego")
+const $inicioJuego = document.querySelector(".inicio-juego");
 const $hasPerdido = document.getElementsByTagName("p");
 let turno = 0;
 let arrayColores = [];

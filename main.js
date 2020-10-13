@@ -4,7 +4,7 @@ let turno = 0;
 let arraySecuenciaMaquina = [];
 
 
-function animacionColor(item){
+function animarColor(item){
     let clase = "d" + [item];
     document.querySelector(`.${clase}`).classList.toggle("animacion-click")
     setTimeout(function(){
@@ -13,46 +13,46 @@ function animacionColor(item){
 }
 
 
-function clickJugador(item){
-    animacionColor(item);
-    turnoJugador(item);
+function manejarClickJugador(item){
+    animarColor(item);
+    gestionarTurnoJugador(item);
 }
 
 
-function inicioJuego() {
+function iniciarJuego() {
     arraySecuenciaMaquina = [];
     $hasPerdido.classList.add("oculto");
     document.querySelector(".container").classList.remove("oculto");
-    turnoComputadora();
+    gestionarTurnoComputadora();
 }
 
 
-function colorAleatorio(){
+function generarColorAleatorio(){
     let numeroAleatorio = Math.floor(Math.random() * 4) + 1; //genero un numero aleatorio entre 1 y 4
     arraySecuenciaMaquina.push(numeroAleatorio);
 }
 
 
-function turnoComputadora(){
-    bloqueaInputUsuario();
-    colorAleatorio();
+function gestionarTurnoComputadora(){
+    bloquearInputUsuario();
+    generarColorAleatorio();
 
     arraySecuenciaMaquina.forEach((elemento, index) => {
-        setTimeout(() => animacionColor(elemento), 500 * index)
+        setTimeout(() => animarColor(elemento), 500 * index)
     });
 
     turno = 0;
-    setTimeout(() => desbloqueaInputUsuario(), 500 * arraySecuenciaMaquina.length)    ;
+    setTimeout(() => desbloquearInputUsuario(), 500 * arraySecuenciaMaquina.length)    ;
 }
 
 
-function turnoJugador(item){
+function gestionarTurnoJugador(item){
     
     if (Number(item) === arraySecuenciaMaquina[turno]){
         turno++;
         if (turno === arraySecuenciaMaquina.length){
             return setTimeout(function(){
-                turnoComputadora()
+                gestionarTurnoComputadora()
             }, 1000);
         }
         else{
@@ -66,17 +66,17 @@ function turnoJugador(item){
     }
 }
 
-function desbloqueaInputUsuario(){
+function desbloquearInputUsuario(){
     document.querySelectorAll('.cuadro').forEach(cuadro => {
-        cuadro.onclick = () => {clickJugador(cuadro.dataset.numero)}
+        cuadro.onclick = () => {manejarClickJugador(cuadro.dataset.numero)}
     })
 }
 
-function bloqueaInputUsuario(){
+function bloquearInputUsuario(){
     document.querySelectorAll('.cuadro').forEach(cuadro => {
         cuadro.onclick = () => {}
     })
 }
 
 
-$inicioJuego.onclick = inicioJuego;
+$inicioJuego.onclick = iniciarJuego;

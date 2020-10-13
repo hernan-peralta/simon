@@ -34,13 +34,15 @@ function colorAleatorio(){
 
 
 function turnoComputadora(){
+    bloqueaInputUsuario();
     colorAleatorio();
 
     arraySecuenciaMaquina.forEach((elemento, index) => {
-        setTimeout(() => animacionColor(elemento), 500*index)
+        setTimeout(() => animacionColor(elemento), 500 * index)
     });
 
     turno = 0;
+    setTimeout(() => desbloqueaInputUsuario(), 500 * arraySecuenciaMaquina.length)    ;
 }
 
 
@@ -50,8 +52,8 @@ function turnoJugador(item){
         turno++;
         if (turno === arraySecuenciaMaquina.length){
             return setTimeout(function(){
-                turnoComputadora()}, 1000
-            );
+                turnoComputadora()
+            }, 1000);
         }
         else{
             return '';
@@ -64,10 +66,17 @@ function turnoJugador(item){
     }
 }
 
+function desbloqueaInputUsuario(){
+    document.querySelectorAll('.cuadro').forEach(cuadro => {
+        cuadro.onclick = () => {clickJugador(cuadro.dataset.numero)}
+    })
+}
 
-document.querySelectorAll('.cuadro').forEach(cuadro => {
-    cuadro.addEventListener('click', () => clickJugador(cuadro.dataset.numero))
-})
+function bloqueaInputUsuario(){
+    document.querySelectorAll('.cuadro').forEach(cuadro => {
+        cuadro.onclick = () => {}
+    })
+}
 
 
 $inicioJuego.onclick = inicioJuego;
